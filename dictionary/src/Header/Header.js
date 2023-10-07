@@ -4,13 +4,13 @@ import { MenuItem, TextField, ThemeProvider, createTheme } from '@mui/material';
 
 import Language from '../data/Language';
 
-const Header = ({ word, setmeanings, setword, meanings, category, setcategory }) => {
+const Header = ({ word, setmeanings, setword, meanings, category, setcategory ,lightmode}) => {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        main: "#fff"
+        main:lightmode?"#0000" : "#fff"
       },
-      mode: 'dark',
+      mode: lightmode?"light":'dark',
     },
   });
 
