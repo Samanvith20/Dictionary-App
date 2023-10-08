@@ -4,6 +4,7 @@ import {Container, Switch, styled} from '@mui/material'
 import Header from './Header/Header'
 import Definition from './Definition/Definition'
 import { grey } from '@mui/material/colors'
+import Footer from './Footer/Footer'
 const App = () => {
    const[lightmode,setlightmode]=useState('')
    const[word,setword]= useState('')
@@ -48,6 +49,7 @@ useEffect(() => {
 
         <Header word={word} setword={setword} meanings={meanings} setmeanings={setmeanings} category={category} setcategory={setcategory} lightmode={lightmode}/>
          <Definition meanings={meanings} word={word} category={category} lightmode={lightmode} />
+         <Footer/>
     </Container>
     </div>
   )
