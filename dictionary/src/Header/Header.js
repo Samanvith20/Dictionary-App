@@ -3,6 +3,8 @@ import './Header.css';
 import { MenuItem, TextField, ThemeProvider, createTheme } from '@mui/material';
 
 import Language from '../data/Language';
+import { debounce } from "lodash";
+//loadsh it is a prebulit nodejs library
 
 const Header = ({ word, setmeanings, setword, meanings, category, setcategory ,lightmode}) => {
   const darkTheme = createTheme({
@@ -19,6 +21,9 @@ const Header = ({ word, setmeanings, setword, meanings, category, setcategory ,l
     setword('');
     setmeanings([]);
   };
+   const handleText =debounce((text)=>{
+      setword(text)
+   },1000)
 
   return (
     <div className='Header'>
@@ -29,9 +34,9 @@ const Header = ({ word, setmeanings, setword, meanings, category, setcategory ,l
             className='search'
             id="standard-basic"
             label="Search a word"
-            value={word}
+            //value={word}
             onChange={(e) => {
-              setword(e.target.value);
+              handleText(e.target.value);
             }}
           />
           <TextField
